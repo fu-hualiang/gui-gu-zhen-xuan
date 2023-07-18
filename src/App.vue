@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    <SvgIcon name="home"></SvgIcon>
+    <SvgIcon name="home" color="" width="20px"></SvgIcon>
   </div>
 </template>
 

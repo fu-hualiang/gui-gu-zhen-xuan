@@ -5,12 +5,20 @@
       default: '#icon-',
     },
     name: String,
+    color: {
+      type: String,
+      default: '',
+    },
+    width:{
+      type: String,
+      default: '16px'
+    }
   });
 </script>
 
 <template>
   <svg>
-    <use :xlink:href="prefix+name"></use>
+    <use :xlink:href="prefix + name" :fill="color" :width="width"></use>
   </svg>
 </template>
 
