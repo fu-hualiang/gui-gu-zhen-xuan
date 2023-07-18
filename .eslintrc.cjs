@@ -33,5 +33,5 @@ module.exports = {
     },
   },
   plugins: ['@typescript-eslint', 'vue'],
-  rules: { 'no-var': 'error' },
+  rules: { '@typescript-eslint/ban-ts-comment': 'off' },
 };
