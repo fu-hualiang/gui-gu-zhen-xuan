@@ -9,10 +9,10 @@
       type: String,
       default: '',
     },
-    width:{
+    width: {
       type: String,
-      default: '16px'
-    }
+      default: '16px',
+    },
   });
 </script>
 
