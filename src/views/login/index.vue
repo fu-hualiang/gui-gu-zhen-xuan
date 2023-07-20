@@ -10,9 +10,9 @@
 
   const userStore = useUserStore();
 
-  const login = ()=>{
+  const login = () => {
     userStore.userLogin(loginForm);
-  }
+  };
 </script>
 
 <template>
@@ -37,7 +37,12 @@
             ></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button class="login_btn" type="primary" size="default" @click="login">
+            <el-button
+              class="login_btn"
+              type="primary"
+              size="default"
+              @click="login"
+            >
               登陆
             </el-button>
           </el-form-item>

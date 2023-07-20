@@ -11,7 +11,7 @@ export const constantRouter = [
   },
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/home',
   },
   {
     path: '/404',
