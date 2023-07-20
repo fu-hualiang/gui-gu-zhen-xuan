@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <router-view></router-view>
+  <div><h1>一级路由 home</h1></div>
 </template>
 
 <style lang="scss" scoped></style>
