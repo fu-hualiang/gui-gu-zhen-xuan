@@ -1,7 +1,10 @@
 <script lang="ts" setup>
-  import { reactive } from 'vue';
+  import { reactive, ref } from 'vue';
   import { Lock, User } from '@element-plus/icons-vue';
   import useUserStore from '@/store/modules/user.ts';
+  import { useRouter } from 'vue-router';
+  import { ElNotification } from 'element-plus';
+  import { getTime } from '@/utils/time';
 
   const loginForm = reactive({
     username: 'admin',
@@ -9,9 +12,28 @@
   });
 
   const userStore = useUserStore();
+  const router = useRouter();
 
-  const login = () => {
-    userStore.userLogin(loginForm);
+  const loading = ref<boolean>(false);
+
+  const login = async () => {
+    loading.value = true;
+    try {
+      await userStore.userLogin(loginForm);
+      router.push('/');
+      ElNotification({
+        type: 'success',
+        message: '欢迎回来',
+        title: `Hi,${getTime()}好`,
+      });
+    } catch (error) {
+      ElNotification({
+        type: 'error',
+        message: (error as Error).message,
+      });
+    } finally {
+      loading.value = false;
+    }
   };
 </script>
 
@@ -42,6 +64,7 @@
               type="primary"
               size="default"
               @click="login"
+              :loading="loading"
             >
               登陆
             </el-button>
