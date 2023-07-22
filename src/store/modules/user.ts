@@ -4,10 +4,13 @@ import type { loginForm, loginResponseData } from '@/api/user/type';
 import type { userState } from './types/type';
 import { GET_TOKEN, SET_TOKEN } from '@/utils/token';
 
+import { constantRoute } from '@/router/routers';
+
 const useUserStore = defineStore('User', {
   state: (): userState => {
     return {
       token: GET_TOKEN(),
+      menuRoutes: constantRoute,
     };
   },
   actions: {

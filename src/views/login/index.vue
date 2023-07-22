@@ -16,7 +16,11 @@
 
   const loading = ref<boolean>(false);
 
+  const loginForms = ref();
+
   const login = async () => {
+    await loginForms.value.validate();
+
     loading.value = true;
     try {
       await userStore.userLogin(loginForm);
@@ -41,16 +45,13 @@
   <div class="login_container">
     <el-row :gutter="20">
       <el-col :span="12" :offset="12" :xs="24">
-        <el-form class="login_form">
+        <el-form class="login_form" :model="loginForm" ref="loginForms">
           <h1>Hello</h1>
           <h2>硅谷甄选</h2>
-          <el-form-item>
-            <el-input
-              v-model="loginForm.username"
-              :prefix-icon="User"
-            ></el-input>
+          <el-form-item prop="username">
+            <el-input v-model="loginForm.username" :prefix-icon="User"></el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item prop="password">
             <el-input
               type="password"
               v-model="loginForm.password"
