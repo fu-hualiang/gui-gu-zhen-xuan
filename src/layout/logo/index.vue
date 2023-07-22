@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-  import setting from '@/setting'
+  import setting from '@/setting';
 </script>
 
 <template>
   <div class="logo">
     <img :src="setting.logo" alt="硅谷甄选" v-if="!setting.logoHidden" />
-    <p>{{setting.title}}</p>
+    <p>{{ setting.title }}</p>
   </div>
 </template>
 
