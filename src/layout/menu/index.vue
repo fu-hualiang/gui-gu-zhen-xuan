@@ -11,20 +11,25 @@
 <template>
   <template v-for="item in menuList" :key="item.path">
     <!-- 不折叠 -->
-    <el-menu-item :index="item.path" v-if="!item.children">
-      <template #title>
-        <span>icon-</span>
-        <span>{{ item.meta.title }}</span>
-      </template>
-    </el-menu-item>
+    <template v-if="!item.children">
+      <el-menu-item :index="item.path" v-if="!item.meta.hidden">
+        <template #title>
+          <span>icon-</span>
+          <span>{{ item.meta.title }}</span>
+        </template>
+      </el-menu-item>
+    </template>
+
     <!-- 折叠 -->
-    <el-sub-menu :index="item.path" v-else>
-      <template #title>
-        <span>icon-</span>
-        <span>{{ item.meta.title }}</span>
-      </template>
-      <Menu :menuList="item.children"></Menu>
-    </el-sub-menu>
+    <template v-else>
+      <el-sub-menu :index="item.path" v-if="!item.meta.hidden">
+        <template #title>
+          <span>icon-</span>
+          <span>{{ item.meta.title }}</span>
+        </template>
+        <Menu :menuList="item.children"></Menu>
+      </el-sub-menu>
+    </template>
   </template>
 </template>
 

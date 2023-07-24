@@ -22,7 +22,7 @@
     <!-- 顶部导航 -->
     <div class="layout_tabbar">456</div>
     <!-- 内容展示区域 -->
-    <div class="layout_main">789</div>
+    <div class="layout_main"><router-view></router-view></div>
   </div>
 </template>
 
