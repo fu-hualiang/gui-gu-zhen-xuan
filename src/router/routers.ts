@@ -1,5 +1,3 @@
-import { fa } from 'element-plus/es/locale/index.js';
-
 export const constantRoute = [
   {
     path: '/login',
