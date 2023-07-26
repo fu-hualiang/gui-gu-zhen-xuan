@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import Logo from './logo/index.vue';
   import Menu from './menu/index.vue';
+  import Main from './main/index.vue';
 
   import useUserStore from '@/store/modules/user';
 
@@ -11,18 +12,20 @@
   <div class="layout_container">
     <!-- 左侧菜单 -->
     <div class="layout_slider">
-      <Logo></Logo>
+      <Logo />
       <!-- 菜单 -->
       <el-scrollbar class="scrollbar">
         <el-menu mode="vertical" background-color="#001529" text-color="white" class="el-menu">
-          <Menu :menuList="userStore.menuRoutes"></Menu>
+          <Menu :menuList="userStore.menuRoutes" />
         </el-menu>
       </el-scrollbar>
     </div>
     <!-- 顶部导航 -->
     <div class="layout_tabbar">456</div>
     <!-- 内容展示区域 -->
-    <div class="layout_main"><router-view></router-view></div>
+    <div class="layout_main">
+      <Main />
+    </div>
   </div>
 </template>
 
