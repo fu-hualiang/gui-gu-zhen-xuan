@@ -1,13 +1,7 @@
-<script setup lang='ts'>
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div>
-    role
-  </div>
+  <div>role</div>
 </template>
 
-<style scoped lang='scss'>
-
-</style>
+<style scoped lang="scss"></style>

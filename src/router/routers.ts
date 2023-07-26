@@ -2,7 +2,7 @@ export const constantRoute = [
   {
     path: '/',
     component: () => import('@/layout/index.vue'),
-    redirect:'/home',
+    redirect: '/home',
     name: 'Layout',
     meta: {
       title: '布局',
