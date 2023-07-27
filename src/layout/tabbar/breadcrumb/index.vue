@@ -8,7 +8,7 @@
 </script>
 
 <template>
-  <el-icon style="margin-right: 10px" @click='changeIcon'>
+  <el-icon style="margin-right: 10px" @click="changeIcon">
     <Expand v-if="settingStore.fold" />
     <Fold v-else />
   </el-icon>

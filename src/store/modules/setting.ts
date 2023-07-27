@@ -5,9 +5,9 @@ const useSettingStore = defineStore('Setting', {
     return { fold: false };
   },
   actions: {
-    switchFold(){
-      this.fold=!this.fold;
-    }
+    switchFold() {
+      this.fold = !this.fold;
+    },
   },
   getters: {},
 });

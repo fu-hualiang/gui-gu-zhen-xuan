@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import Breadcrumb from './breadcrumb/index.vue'
-  import Setting from './setting/index.vue'
+  import Breadcrumb from './breadcrumb/index.vue';
+  import Setting from './setting/index.vue';
 </script>
 
 <template>
@@ -9,7 +9,7 @@
       <Breadcrumb />
     </div>
     <div class="tabbar_right">
-      <Setting/>
+      <Setting />
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@
       margin-left: 20px;
     }
 
-    .tabbar_right{
+    .tabbar_right {
       display: flex;
       align-items: center;
     }
