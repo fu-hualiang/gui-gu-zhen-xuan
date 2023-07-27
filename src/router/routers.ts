@@ -6,7 +6,7 @@ export const constantRoute = [
     name: 'Layout',
     meta: {
       title: '布局',
-      hidden: false,
+      hidden: true,
       icon: 'House',
     },
     children: [

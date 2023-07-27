@@ -1,29 +1,44 @@
 <script lang="ts" setup>
+  import { useRoute } from 'vue-router';
   import Logo from './logo/index.vue';
   import Menu from './menu/index.vue';
+  import Tabbar from './tabbar/index.vue';
   import Main from './main/index.vue';
 
   import useUserStore from '@/store/modules/user';
+  import useSettingStore from '@/store/modules/setting.ts';
 
   const userStore = useUserStore();
+  const settingStore = useSettingStore();
+  const route = useRoute();
+  console.log(route.name);
 </script>
 
 <template>
   <div class="layout_container">
     <!-- 左侧菜单 -->
-    <div class="layout_slider">
+    <div class="layout_slider" :class="{ fold: !!settingStore.fold }">
       <Logo />
       <!-- 菜单 -->
       <el-scrollbar class="scrollbar">
-        <el-menu mode="vertical" background-color="#001529" text-color="white" class="el-menu">
+        <el-menu
+          :default-active="route.name"
+          mode="vertical"
+          background-color="#001529"
+          text-color="white"
+          class="el-menu"
+          :collapse="settingStore.fold"
+        >
           <Menu :menuList="userStore.menuRoutes" />
         </el-menu>
       </el-scrollbar>
     </div>
     <!-- 顶部导航 -->
-    <div class="layout_tabbar">456</div>
+    <div class="layout_tabbar" :class="{ fold: !!settingStore.fold }">
+      <Tabbar />
+    </div>
     <!-- 内容展示区域 -->
-    <div class="layout_main">
+    <div class="layout_main" :class="{ fold: !!settingStore.fold }">
       <Main />
     </div>
   </div>
@@ -33,13 +48,13 @@
   .layout_container {
     width: 100%;
     height: 100vh;
-    background: purple;
 
     .layout_slider {
       width: $base-menu-width;
       height: 100vh;
       background: $base-menu-background;
       color: white;
+      transition: all 0.1s;
 
       .scrollbar {
         width: 100%;
@@ -49,6 +64,10 @@
           border-right: none;
         }
       }
+
+      &.fold {
+        width: 70px;
+      }
     }
 
     .layout_tabbar {
@@ -57,7 +76,12 @@
       left: $base-menu-width;
       width: calc(100% - $base-menu-width);
       height: $base-tabbar-height;
-      background: goldenrod;
+      transition: all 0.1s;
+
+      &.fold {
+        width: calc(100vw - 70px);
+        left: 70px;
+      }
     }
 
     .layout_main {
@@ -69,6 +93,12 @@
       top: $base-tabbar-height;
       padding: 20px;
       overflow: auto;
+      transition: all 0.1s;
+
+      &.fold {
+        width: calc(100vw - 70px);
+        left: 70px;
+      }
     }
   }
 </style>
