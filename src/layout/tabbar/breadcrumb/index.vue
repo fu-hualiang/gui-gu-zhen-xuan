@@ -1,6 +1,8 @@
 <script setup lang="ts">
+  import {useRoute} from 'vue-router';
   import useSettingStore from '@/store/modules/setting.ts';
 
+  const route = useRoute();
   const settingStore = useSettingStore();
   const changeIcon = () => {
     settingStore.switchFold();
@@ -13,8 +15,11 @@
     <Fold v-else />
   </el-icon>
   <el-breadcrumb separator-icon="ArrowRight">
-    <el-breadcrumb-item>promotion list</el-breadcrumb-item>
-    <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+    <el-breadcrumb-item v-for='(item,index) in route.matched' :key='index' v-show='!item.meta.hidden'>
+      <el-icon>
+        <component :is='item.meta.icon'></component>
+      </el-icon>
+      {{item.meta.title}}</el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 

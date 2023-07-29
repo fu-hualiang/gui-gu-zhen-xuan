@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { constantRoute } from './routers';
+import createRouteGuard from '@/router/guard';
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -12,4 +13,5 @@ const router = createRouter({
   },
 });
 
+createRouteGuard(router);
 export default router;

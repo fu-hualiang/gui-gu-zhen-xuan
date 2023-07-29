@@ -4,14 +4,11 @@
   import Menu from './menu/index.vue';
   import Tabbar from './tabbar/index.vue';
   import Main from './main/index.vue';
-
-  import useUserStore from '@/store/modules/user';
   import useSettingStore from '@/store/modules/setting.ts';
+  import { constantRoute } from '@/router/routers';
 
-  const userStore = useUserStore();
   const settingStore = useSettingStore();
   const route = useRoute();
-  console.log(route.name);
 </script>
 
 <template>
@@ -28,8 +25,9 @@
           text-color="white"
           class="el-menu"
           :collapse="settingStore.fold"
+          :collapse-transition="false"
         >
-          <Menu :menuList="userStore.menuRoutes" />
+          <Menu :menuList="constantRoute" />
         </el-menu>
       </el-scrollbar>
     </div>
@@ -66,7 +64,7 @@
       }
 
       &.fold {
-        width: 70px;
+        width: $base-menu-fold-width;
       }
     }
 
@@ -79,8 +77,8 @@
       transition: all 0.1s;
 
       &.fold {
-        width: calc(100vw - 70px);
-        left: 70px;
+        width: calc(100vw - $base-menu-fold-width);
+        left: $base-menu-fold-width;
       }
     }
 
@@ -96,8 +94,8 @@
       transition: all 0.1s;
 
       &.fold {
-        width: calc(100vw - 70px);
-        left: 70px;
+        width: calc(100vw - $base-menu-fold-width);
+        left: $base-menu-fold-width;
       }
     }
   }

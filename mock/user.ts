@@ -40,6 +40,7 @@ export default [
       const checkUser = createUserList().find(
         (item) => item.username === username && item.password === password,
       );
+
       //没有用户返回失败信息
       if (!checkUser) {
         return { code: 201, data: { message: '账号或者密码不正确' } };
@@ -51,7 +52,7 @@ export default [
   },
   // 获取用户信息
   {
-    url: '/api/user/info',
+    url: '/dev-api/user/info',
     method: 'get',
     response: (request) => {
       //获取请求头携带token

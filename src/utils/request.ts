@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { ElMessage } from 'element-plus';
+import { GET_TOKEN } from '@/utils/token.ts';
 
 const request = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
@@ -7,6 +8,9 @@ const request = axios.create({
 });
 
 request.interceptors.request.use((config) => {
+  if (GET_TOKEN()){
+    config.headers.token = GET_TOKEN();
+  }
   return config;
 });
 

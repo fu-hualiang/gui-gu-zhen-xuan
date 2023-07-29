@@ -1,11 +1,14 @@
 <script lang="ts" setup>
+  import useSettingStore from '@/store/modules/setting.ts';
   import setting from '@/setting';
+
+  const settingStore = useSettingStore();
 </script>
 
 <template>
   <div class="logo">
     <img :src="setting.logo" alt="硅谷甄选" v-if="!setting.logoHidden" />
-    <p>{{ setting.title }}</p>
+    <p v-if='!settingStore.fold'>{{ setting.title }}</p>
   </div>
 </template>
 
@@ -17,7 +20,7 @@
     display: flex;
     align-items: center;
     font-size: $base-menu-logo-fontSize;
-    padding: 20px;
+    justify-content: center;
 
     img {
       width: 40px;

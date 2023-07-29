@@ -2,7 +2,7 @@
   import { reactive, ref } from 'vue';
   import { Lock, User } from '@element-plus/icons-vue';
   import useUserStore from '@/store/modules/user.ts';
-  import { useRouter } from 'vue-router';
+  import { useRouter,useRoute } from 'vue-router';
   import { ElNotification } from 'element-plus';
   import { getTime } from '@/utils/time';
 
@@ -13,6 +13,7 @@
 
   const userStore = useUserStore();
   const router = useRouter();
+  const route = useRoute();
 
   const loading = ref<boolean>(false);
 
@@ -24,7 +25,7 @@
     loading.value = true;
     try {
       await userStore.userLogin(loginForm);
-      router.push('/');
+      await router.push(route.query.redirect as string || '/');
       ElNotification({
         type: 'success',
         message: '欢迎回来',
@@ -82,6 +83,7 @@
     height: 100vh;
     background: url('@/assets/images/background.jpg') no-repeat;
     background-size: cover;
+    overflow:hidden;
 
     .login_form {
       position: relative;
@@ -99,7 +101,7 @@
       h2 {
         font-size: 20px;
         color: white;
-        margin: 20px 0px;
+        margin: 20px 0;
       }
 
       .login_btn {
