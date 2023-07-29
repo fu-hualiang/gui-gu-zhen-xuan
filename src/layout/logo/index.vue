@@ -8,7 +8,7 @@
 <template>
   <div class="logo">
     <img :src="setting.logo" alt="硅谷甄选" v-if="!setting.logoHidden" />
-    <p v-if='!settingStore.fold'>{{ setting.title }}</p>
+    <p v-if="!settingStore.fold">{{ setting.title }}</p>
   </div>
 </template>
 

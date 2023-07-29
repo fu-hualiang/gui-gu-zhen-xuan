@@ -8,7 +8,7 @@ const request = axios.create({
 });
 
 request.interceptors.request.use((config) => {
-  if (GET_TOKEN()){
+  if (GET_TOKEN()) {
     config.headers.token = GET_TOKEN();
   }
   return config;

@@ -11,15 +11,15 @@ const useSettingStore = defineStore('Setting', {
     switchFold() {
       this.fold = !this.fold;
     },
-    refreshInfo(){
+    refreshInfo() {
       return this.refresh;
     },
-    startRefresh(){
+    startRefresh() {
       this.refresh = true;
     },
-    finishRefresh(){
+    finishRefresh() {
       this.refresh = false;
-    }
+    },
   },
   getters: {},
 });
