@@ -4,7 +4,7 @@ import 'nprogress/nprogress.css';
 import useUserStore from '@/store/modules/user.ts';
 import { GET_TOKEN } from '@/utils/token.ts';
 
-import setting from '@/setting.ts'
+import setting from '@/setting.ts';
 
 export default function setupUserLoginInfoGuard(router: Router) {
   router.beforeEach(async (to, from, next) => {
