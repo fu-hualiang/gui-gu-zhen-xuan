@@ -29,10 +29,8 @@ const useUserStore = defineStore('User', {
     },
     async userInfo() {
       const res = await reqUserInfo();
-      if (res.code === 200) {
-        this.username = res.data.checkUser.username;
-        this.avatar = res.data.checkUser.avatar;
-      }
+      this.username = res.data.checkUser.username;
+      this.avatar = res.data.checkUser.avatar;
     },
   },
   getters: {},
